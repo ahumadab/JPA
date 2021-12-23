@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
+http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
+	version="2.1">
+	<persistence-unit name="bddFilRouge"
+		transaction-type="RESOURCE_LOCAL">
+		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+		<properties>
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/biblio?createDatabaseIfNotExist=true" />
+			<property name="javax.persistence.jdbc.user" value="root" />
+			<property name="javax.persistence.jdbc.password" value="" />
+			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
+			<property name="hibernate.show_sql" value="true" />
+		</properties>
+	</persistence-unit>
+	<persistence-unit name="banque"
+		transaction-type="RESOURCE_LOCAL">
+		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+		<class>fr.diginamic.banque.model.EBanque</class>
+		<class>fr.diginamic.banque.model.EBClient</class>
+		<class>fr.diginamic.banque.model.EAbstractCompte</class>
+		<class>fr.diginamic.banque.model.EAdresse</class>
+		<class>fr.diginamic.banque.model.EAbstractOperation</class>
+		<class>fr.diginamic.banque.model.EAssuranceVie</class>
+		<class>fr.diginamic.banque.model.ELivretA</class>
+		<class>fr.diginamic.banque.model.EVirement</class>
+		<properties>
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/banque?createDatabaseIfNotExist=true" />
+			<property name="javax.persistence.jdbc.user" value="root" />
+			<property name="javax.persistence.jdbc.password" value="" />
+			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
+			<property name="javax.persistence.schema-generation.database.action" value="update"/>
+			<property name="hibernate.archive.autodetection" value=""/>
+			<!-- <property name="hibernate.hbm2ddl.auto" value="create"/> -->
+		</properties>
+	</persistence-unit>
+</persistence>
